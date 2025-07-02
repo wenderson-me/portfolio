@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="pt-PT" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wenderson Monteiro | Portfólio</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide-icons@0.378.0"></script>
+
+    <!-- ScrollReveal.js for animations -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <script>
+        // Configuração do Tailwind para o modo escuro
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+
+    <style>
+        :root {
+            /* Light Mode Colors */
+            --bg-primary: #f9fafb;
+            /* bg-gray-50 */
+            --bg-secondary: #ffffff;
+            /* bg-white */
+            --text-primary: #1f2937;
+            /* text-gray-800 */
+            --text-secondary: #4b5563;
+            /* text-gray-600 */
+            --accent-color: #c084fc;
+            /* purple-400 */
+            --accent-text: #6b21a8;
+            /* purple-800 */
+            --border-color: #e5e7eb;
+            /* border-gray-200 */
+        }
+
+        .dark {
+            /* Dark Mode Colors */
+            --bg-primary: #111827;
+            /* bg-gray-900 */
+            --bg-secondary: #1f2937;
+            /* bg-gray-800 */
+            --text-primary: #f9fafb;
+            /* text-gray-50 */
+            --text-secondary: #9ca3af;
+            /* text-gray-400 */
+            --accent-color: #a78bfa;
+            /* violet-400 */
+            --accent-text: #f5d0fe;
+            /* fuchsia-200 */
+            --border-color: #374151;
+            /* border-gray-700 */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-secondary);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Utility classes for theme colors */
+        .text-primary { color: var(--text-primary); }
+        .text-secondary { color: var(--text-secondary); }
+        .bg-primary { background-color: var(--bg-primary); }
+        .bg-secondary { background-color: var(--bg-secondary); }
+        .accent-color { color: var(--accent-color); }
+        .bg-accent { background-color: var(--accent-color); }
+        .border-color { border-color: var(--border-color); }
+
+        .font-light { font-weight: 300; }
+        .font-black-impact { font-weight: 900; }
+
+        .header-shadow {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+        }
+
+        .dark .header-shadow {
+            box-shadow: 0 4px 6px -1px rgba(255, 255, 255, 0.02), 0 2px 4px -1px rgba(255, 255, 255, 0.03);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -25px; /* Ajustado para alinhar com a borda */
+            top: 8px;
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+            border: 2px solid var(--bg-primary);
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .project-card .overlay {
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .project-card:hover .overlay {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body class="leading-relaxed antialiased">
+
+    <!-- Header & Navegação -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-secondary/80 dark:bg-secondary/80 backdrop-blur-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#hero" class="text-2xl font-bold text-primary">WM<span class="accent-color">.</span></a>
+            <div class="hidden md:flex items-center space-x-6 text-sm">
+                <a href="#about" data-translate-key="nav_about" class="text-primary hover:accent-color transition-colors">Sobre</a>
+                <a href="#experience" data-translate-key="nav_experience" class="text-primary hover:accent-color transition-colors">Experiência</a>
+                <a href="#portfolio" data-translate-key="nav_portfolio" class="text-primary hover:accent-color transition-colors">Portfólio</a>
+                <a href="#contact" data-translate-key="nav_contact" class="text-primary hover:accent-color transition-colors">Contato</a>
+                <a href="cv.html" target="_blank" data-translate-key="nav_cv" class="bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300 font-semibold px-4 py-2 rounded-md hover:bg-purple-200 dark:hover:bg-purple-900 transition-all duration-300 flex items-center">
+                    <i data-lucide="download" class="w-4 h-4 mr-2"></i>
+                    Download CV
+                </a>
+
+                <!-- Theme and Language Switchers -->
+                <div class="flex items-center border-l border-color pl-6 ml-2">
+                    <button id="theme-toggle" class="text-primary hover:accent-color transition-colors">
+                        <i id="theme-toggle-icon" data-lucide="sun" class="w-5 h-5">Light</i>
+                    </button>
+                    <div class="flex items-center ml-4 text-xs font-semibold">
+                        <button id="lang-pt" class="text-primary opacity-50 hover:opacity-100 transition-opacity">PT</button>
+                        <span class="mx-1 text-secondary">/</span>
+                        <button id="lang-en" class="text-primary opacity-50 hover:opacity-100 transition-opacity">EN</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-primary">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden fixed top-0 left-0 w-full h-full bg-secondary z-40 p-8">
+        <div class="flex flex-col items-center justify-center h-full space-y-8 text-xl">
+            <a href="#about" data-translate-key="nav_about_mobile" class="mobile-menu-link text-primary">Sobre</a>
+            <a href="#experience" data-translate-key="nav_experience_mobile" class="mobile-menu-link text-primary">Experiência</a>
+            <a href="#portfolio" data-translate-key="nav_portfolio_mobile" class="mobile-menu-link text-primary">Portfólio</a>
+            <a href="#contact" data-translate-key="nav_contact_mobile" class="mobile-menu-link text-primary">Contato</a>
+
+            <!-- Mobile switchers -->
+            <div class="flex items-center border-t border-color pt-8 mt-4 w-full justify-center">
+                <button id="theme-toggle-mobile" class="text-primary hover:accent-color transition-colors">
+                    <i id="theme-toggle-icon-mobile" data-lucide="sun" class="w-6 h-6"></i>
+                </button>
+                <div class="flex items-center ml-6 text-sm font-semibold">
+                    <button id="lang-pt-mobile" class="text-primary opacity-50 hover:opacity-100 transition-opacity">PT</button>
+                    <span class="mx-2 text-secondary">/</span>
+                    <button id="lang-en-mobile" class="text-primary opacity-50 hover:opacity-100 transition-opacity">EN</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main class="container mx-auto px-6 pt-24">
+
+        <!-- Seção Hero -->
+        <section id="hero" class="min-h-screen flex flex-col justify-center items-center text-center -mt-24">
+            <div class="max-w-4xl">
+                <h1 class="text-5xl md:text-8xl font-black-impact text-primary mb-4 animate-fade-in-up">WENDERSON MONTEIRO</h1>
+                <p data-translate-key="hero_subtitle" class="text-lg md:text-xl font-light text-secondary animate-fade-in-up" style="animation-delay: 200ms;">
+                    Quality Assurance.
+                </p>
+                <a href="#portfolio" data-translate-key="hero_button" class="mt-8 inline-block bg-accent text-white font-bold py-3 px-8 rounded-full hover:bg-purple-500 dark:hover:bg-violet-500 transition-all duration-300 animate-fade-in-up" style="animation-delay: 400ms;">
+                    Explorar Projetos
+                </a>
+            </div>
+        </section>
+
+        <!-- Seção Sobre -->
+        <section id="about" class="py-24">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="section-content">
+                    <img src="https://media.licdn.com/dms/image/v2/C4E03AQG6kluH8Pe-Gw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1629807000416?e=1756339200&v=beta&t=j0dMA1kKLL7ri1QQXMHgnTdNyVQJTKYJ5YxH-BPLbE0" alt="Foto de perfil de Wenderson Monteiro" class="w-full max-w-sm h-auto object-cover rounded-lg shadow-lg mx-auto">
+                </div>
+                <div class="section-content space-y-4 font-light">
+                    <h2 data-translate-key="about_title" class="section-title text-3xl font-bold text-primary mb-4">Sobre Mim</h2>
+                    <p data-translate-key="about_p1">
+                        A minha jornada é alimentada pela curiosidade. Seja a testar a solidez de um software ou a explorar uma nova composição fotográfica, a minha paixão está em encontrar a qualidade e a beleza nos detalhes.
+                    </p>
+                    <br>
+                    <h3 data-translate-key="about_subtitle" class="text-2xl font-bold text-primary mb-4">De QA a Criativo</h3>
+                    <p data-translate-key="about_p2">
+                        Com 5 anos em Quality Assurance, aprendi que um produto de sucesso vai além do código: trata-se da experiência. Essa perceção levou-me a explorar o design e a fotografia, onde aplico a mesma atenção ao detalhe e o mesmo rigor para criar algo significativo.
+                    </p>
+                    <p data-translate-key="about_p3">
+                        Acredito que a minha experiência técnica em QA, combinada com um olhar criativo, me oferece uma perspetiva única. Consigo não só identificar o que está errado, mas também visualizar o que poderia ser melhor, mais intuitivo e mais belo.
+                    </p>
+                    <p data-translate-key="about_p4">
+                        Estou à procura de projetos onde possa unir estes dois mundos, contribuindo para criar produtos que não só funcionam na perfeição, mas que também encantam e inspiram.
+                    </p>
+                    <div class="mt-8 pt-8 border-t border-color">
+                        <h4 data-translate-key="about_education_title" class="text-xl font-bold text-primary mb-4">Formação e Certificações</h4>
+                        <div class="space-y-4">
+                            <div>
+                                <p data-translate-key="about_degree" class="font-semibold text-primary">Graduação, Análise e Desenvolvimento de Sistemas</p>
+                                <p class="text-sm text-secondary">Estácio de Sá Goiás (2018 - 2021)</p>
+                            </div>
+                            <div>
+                                <p data-translate-key="about_cert" class="font-semibold text-primary">Certified Tester, Foundation Level - CTFL</p>
+                                <p class="text-sm text-secondary">ISTQB® - International Software Testing Qualifications Board (2021)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Experiência -->
+        <section id="experience" class="py-24">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 data-translate-key="experience_title" class="section-title text-3xl font-bold text-primary mb-16">Percurso Profissional</h2>
+            </div>
+            <div class="relative pl-8 max-w-3xl mx-auto border-l-2 border-color">
+                <!-- Item 01 -->
+                <div class="timeline-item mb-16 section-content">
+                    <p data-translate-key="exp1_date" class="text-sm accent-color mb-1 font-semibold">Jun 2024 - Presente</p>
+                    <h3 data-translate-key="exp1_role" class="text-xl font-bold text-primary">Quality Assurance</h3>
+                    <p data-translate-key="exp1_company" class="text-md text-secondary mb-3">Instituto Informática - Segurança Social</p>
+                    <ul data-translate-key="exp1_desc" class="list-disc list-inside text-secondary font-light space-y-2 text-sm">
+                        <li>Realizo testes funcionais manuais para garantir a qualidade do software de gerenciamento.</li>
+                        <li>Realizo testes de integração entre módulos e sistemas para assegurar consistência.</li>
+                        <li>Realizo testes de banco de dados para verificar integridade e segurança.</li>
+                        <li>Testes SOAP para validar comunicação entre APIs e serviços.</li>
+                        <li>Analiso requisitos de negócios e os traduzo em casos de teste abrangentes.</li>
+                        <li>Participo ativamente de cerimônias ágeis, oferecendo feedback.</li>
+                    </ul>
+                    <div class="mt-4">
+                        <span data-translate-key="exp_tools_title" class="font-semibold text-primary text-sm">Ferramentas utilizadas:</span>
+                        <p data-translate-key="exp1_tools" class="text-secondary font-light text-sm mt-1">
+                            SQL Server, BugZilla, TestLink, Postman, Selenium, Java, BDD, Cucumber
+                        </p>
+                    </div>
+                </div>
+                <!-- Item 02 -->
+                <div class="timeline-item mb-16 section-content">
+                    <p data-translate-key="exp2_date" class="text-sm accent-color mb-1 font-semibold">Fev 2023 - Fev 2024</p>
+                    <h3 data-translate-key="exp2_role" class="text-xl font-bold text-primary">Quality Assurance</h3>
+                    <p data-translate-key="exp2_company" class="text-md text-secondary mb-3">SPMS - Ministério da Saúde</p>
+                    <ul data-translate-key="exp2_desc" class="list-disc list-inside text-secondary font-light space-y-2 text-sm">
+                        <li>Analisei requisitos no Jira para criar casos de teste e aumentar a cobertura.</li>
+                        <li>Executei e documentei testes de aceitação para garantir conformidade com os requisitos.</li>
+                        <li>Realizei testes exploratórios, identificando falhas críticas não cobertas.</li>
+                        <li>Conduzi testes de regressão em cada sprint, reduzindo bugs recorrentes.</li>
+                        <li>Participei de reuniões ágeis, oferecendo insights que aprimoraram o desenvolvimento.</li>
+                    </ul>
+                    <div class="mt-4">
+                        <span data-translate-key="exp_tools_title" class="font-semibold text-primary text-sm">Ferramentas utilizadas:</span>
+                        <p data-translate-key="exp2_tools" class="text-secondary font-light text-sm mt-1">
+                            Jira, Postman, SQL, Git, GitLab, Azure DevOps, Robot Framework, BDD.
+                        </p>
+                    </div>
+                </div>
+                <!-- Item 03 -->
+                <div class="timeline-item mb-16 section-content">
+                    <p data-translate-key="exp3_date" class="text-sm accent-color mb-1 font-semibold">Jan 2022 - Fev 2023</p>
+                    <h3 data-translate-key="exp3_role" class="text-xl font-bold text-primary">Quality Assurance Engineer</h3>
+                    <p data-translate-key="exp3_company" class="text-md text-secondary mb-3">Tray - E-commerce</p>
+                    <ul data-translate-key="exp3_desc" class="list-disc list-inside text-secondary font-light space-y-2 text-sm">
+                        <li>Desenvolvi e mantive mais de 200 testes automatizados em Cypress e Capybara, reduzindo o tempo de testes.</li>
+                        <li>Aprimorei o framework de automação, aumentando a reutilização de código.</li>
+                        <li>Identifiquei e documentei bugs críticos com evidências detalhadas.</li>
+                        <li>Configurei e otimizei CI/CD no GitLab, reduzindo o tempo de integração.</li>
+                        <li>Criei documentação técnica e guias de melhores práticas.</li>
+                        <li>Acompanhei implantações em produção, oferecendo suporte técnico imediato.</li>
+                        <li>Implementei testes de performance com K6, melhorando o tempo de resposta.</li>
+                        <li>Compartilhei conhecimento em sessões de pair programming e workshops.</li>
+                    </ul>
+                    <div class="mt-4">
+                        <span data-translate-key="exp_tools_title" class="font-semibold text-primary text-sm">Ferramentas utilizadas:</span>
+                        <p data-translate-key="exp3_tools" class="text-secondary font-light text-sm mt-1">
+                            Git, GitLab, JavaScript, Cypress, Docker, K6, Jest, Ymal, Vue, Ruby
+                        </p>
+                    </div>
+                </div>
+                <!-- Item 04 -->
+                <div class="timeline-item section-content">
+                    <p data-translate-key="exp4_date" class="text-sm accent-color mb-1 font-semibold">Jul 2019 - Dez 2021</p>
+                    <h3 data-translate-key="exp4_role" class="text-xl font-bold text-primary">Quality Assurance</h3>
+                    <p data-translate-key="exp4_company" class="text-md text-secondary mb-3">Auto Bem - Seguro de veículos</p>
+                    <ul data-translate-key="exp4_desc" class="list-disc list-inside text-secondary font-light space-y-2 text-sm">
+                        <li>Elaborei mais de 500 casos de teste para aplicações web, assegurando cobertura total dos requisitos.</li>
+                        <li>Implementei um sistema de reporte de bugs no Azure DevOps, melhorando a eficiência na correção.</li>
+                        <li>Realizei testes manuais rigorosos de UI/UX, funcionalidade, integração e compatibilidade.</li>
+                        <li>Analisei requisitos técnicos e de negócio, identificando ambiguidades e riscos antes do desenvolvimento.</li>
+                        <li>Utilizei o Postman para testar APIs REST, garantindo a integridade dos endpoints.</li>
+                        <li>Colaborei com desenvolvedores e product owners para esclarecer requisitos e expectativas.</li>
+                        <li>Contribuí para processos de qualidade que reduziram bugs em produção.</li>
+                    </ul>
+                    <div class="mt-4">
+                        <span data-translate-key="exp_tools_title" class="font-semibold text-primary text-sm">Ferramentas utilizadas:</span>
+                        <p data-translate-key="exp4_tools" class="text-secondary font-light text-sm mt-1">
+                            Cypress, Git, Azure, Postman, Ymal, Javascript, Angular, C#
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Portfólio -->
+        <section id="portfolio" class="py-24 bg-secondary">
+            <div class="max-w-4xl mx-auto text-center px-4">
+                <h2 data-translate-key="portfolio_title" class="section-title text-3xl font-bold text-primary mb-4">Portfólio</h2>
+                <p data-translate-key="portfolio_subtitle" class="font-light max-w-2xl mx-auto mb-16">
+                    Uma coleção de trabalhos que refletem a minha paixão pela qualidade e pela criatividade.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                <!-- Projeto 1 -->
+                <div class="project-card group relative overflow-hidden rounded-lg shadow-lg section-content bg-gray-800">
+                    <img src="https://placehold.co/600x400/1e293b/94a3b8?text=SuperTest+API"
+                         alt="Capa do projeto de testes de API com SuperTest"
+                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                         onerror="this.onerror=null;this.src='https://placehold.co/600x400/1e293b/ffffff?text=Image+Not+Found';">
+                    <div class="overlay absolute inset-0 bg-black/80 flex flex-col justify-center items-center p-6 text-center text-white">
+                        <h3 data-translate-key="project1_title" class="text-xl font-bold mb-2">Teste API com SuperTest</h3>
+                        <p data-translate-key="project1_desc" class="text-sm font-light mb-4">Testes de integração para APIs REST.</p>
+                        <a href="https://github.com/wenderson-me/study-supertest-api" target="_blank" class="mt-2 inline-block bg-accent text-white text-xs font-bold py-2 px-4 rounded-full hover:bg-purple-500 transition-all">
+                           <span data-translate-key="project_button">Ver Projeto</span>
+                        </a>
+                    </div>
+                </div>
+                <!-- Projeto 2 -->
+                <div class="project-card group relative overflow-hidden rounded-lg shadow-lg section-content bg-gray-800">
+                    <img src="https://placehold.co/600x400/1e293b/a7f3d0?text=Cypress+Advanced"
+                         alt="Capa do projeto de testes E2E com Cypress"
+                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                         onerror="this.onerror=null;this.src='https://placehold.co/600x400/1e293b/ffffff?text=Image+Not+Found';">
+                    <div class="overlay absolute inset-0 bg-black/80 flex flex-col justify-center items-center p-6 text-center text-white">
+                        <h3 data-translate-key="project2_title" class="text-xl font-bold mb-2">Testes E2E com Cypress</h3>
+                        <p data-translate-key="project2_desc" class="text-sm font-light mb-4">Automação de testes End-to-End.</p>
+                         <a href="https://github.com/wenderson-me/advanced-cypress" target="_blank" class="mt-2 inline-block bg-accent text-white text-xs font-bold py-2 px-4 rounded-full hover:bg-purple-500 transition-all">
+                           <span data-translate-key="project_button">Ver Projeto</span>
+                        </a>
+                    </div>
+                </div>
+                <!-- Projeto 3 -->
+                <div class="project-card group relative overflow-hidden rounded-lg shadow-lg section-content bg-gray-800">
+                    <img src="https://placehold.co/600x400/1e293b/fde68a?text=K6+Performance"
+                         alt="Capa do projeto de testes de performance com K6"
+                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                         onerror="this.onerror=null;this.src='https://placehold.co/600x400/1e293b/ffffff?text=Image+Not+Found';">
+                    <div class="overlay absolute inset-0 bg-black/80 flex flex-col justify-center items-center p-6 text-center text-white">
+                        <h3 data-translate-key="project3_title" class="text-xl font-bold mb-2">Testes de Performance</h3>
+                        <p data-translate-key="project3_desc" class="text-sm font-light mb-4">Testes de carga e stress com K6.</p>
+                         <a href="https://github.com/wenderson-me/study-k6" target="_blank" class="mt-2 inline-block bg-accent text-white text-xs font-bold py-2 px-4 rounded-full hover:bg-purple-500 transition-all">
+                           <span data-translate-key="project_button">Ver Projeto</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Contato -->
+        <section id="contact" class="py-24 text-center">
+            <h2 data-translate-key="contact_subtitle" class="text-2xl accent-color font-bold mb-4">Vamos Conversar?</h2>
+            <h3 data-translate-key="contact_title" class="text-4xl md:text-5xl font-black-impact text-primary mb-6">Inicie um Projeto Comigo</h3>
+            <p data-translate-key="contact_desc" class="font-light max-w-xl mx-auto mb-12 text-secondary">
+                Seja para discutir uma oportunidade de trabalho, um projeto criativo ou apenas para trocar ideias, a minha caixa de entrada está sempre aberta.
+            </p>
+            <a href="mailto:wendrson22@gmail.com" data-translate-key="contact_button" class="bg-accent text-white font-bold py-4 px-10 rounded-full hover:bg-purple-500 dark:hover:bg-violet-500 transition-all duration-300 transform hover:scale-105">
+                Enviar Mensagem
+            </a>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-secondary">
+        <div class="container mx-auto px-6 text-center text-secondary">
+            <div class="flex justify-center items-center space-x-6 mb-4">
+                <a href="https://github.com/wenderson-me" target="_blank" rel="noopener noreferrer" class="hover:accent-color transition-colors duration-300">
+                    <i data-lucide="github" class="w-6 h-6"></i>
+                </a>
+                <a href="mailto:wendrson22@gmail.com" class="hover:accent-color transition-colors duration-300">
+                    <i data-lucide="mail" class="w-6 h-6"></i>
+                </a>
+            </div>
+            <p data-translate-key="footer_text" class="text-sm font-light">
+                &copy; 2024 Wenderson Monteiro. Design e desenvolvimento com <span class="accent-color">&hearts;</span>.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Dicionário de traduções
+        const translations = {
+            'pt': {
+                'nav_about': 'Sobre', 'nav_experience': 'Experiência', 'nav_portfolio': 'Portfólio', 'nav_contact': 'Contato', 'nav_cv': 'Download CV',
+                'nav_about_mobile': 'Sobre', 'nav_experience_mobile': 'Experiência', 'nav_portfolio_mobile': 'Portfólio', 'nav_contact_mobile': 'Contato',
+                'hero_subtitle': 'Quality Assurance.', 'hero_button': 'Explorar Projetos',
+                'about_title': 'Sobre Mim',
+                'about_p1': 'A minha jornada é alimentada pela curiosidade. Seja a testar a solidez de um software ou a explorar uma nova composição fotográfica, a minha paixão está em encontrar a qualidade e a beleza nos detalhes.',
+                'about_subtitle': 'De QA a Criativo',
+                'about_p2': 'Com 5 anos em Quality Assurance, aprendi que um produto de sucesso vai além do código: trata-se da experiência. Essa perceção levou-me a explorar o design e a fotografia, onde aplico a mesma atenção ao detalhe e o mesmo rigor para criar algo significativo.',
+                'about_p3': 'Acredito que a minha experiência técnica em QA, combinada com um olhar criativo, me oferece uma perspetiva única. Consigo não só identificar o que está errado, mas também visualizar o que poderia ser melhor, mais intuitivo e mais belo.',
+                'about_p4': 'Estou à procura de projetos onde possa unir estes dois mundos, contribuindo para criar produtos que não só funcionam na perfeição, mas que também encantam e inspiram.',
+                'about_education_title': 'Formação e Certificações',
+                'about_degree': 'Graduação, Análise e Desenvolvimento de Sistemas',
+                'about_cert': 'Certified Tester, Foundation Level - CTFL',
+                'experience_title': 'Percurso Profissional',
+                'exp_tools_title': 'Ferramentas utilizadas:',
+                'exp1_date': 'Jun 2024 - Presente', 'exp1_role': 'Quality Assurance', 'exp1_company': 'Instituto Informática - Segurança Social',
+                'exp1_desc': '<li>Realizo testes funcionais manuais para garantir a qualidade do software de gerenciamento.</li><li>Realizo testes de integração entre módulos e sistemas para assegurar consistência.</li><li>Realizo testes de banco de dados para verificar integridade e segurança.</li><li>Testes SOAP para validar comunicação entre APIs e serviços.</li><li>Analiso requisitos de negócios e os traduzo em casos de teste abrangentes.</li><li>Participo ativamente de cerimônias ágeis, oferecendo feedback.</li>',
+                'exp1_tools': 'SQL Server, BugZilla, TestLink, Postman, Selenium, Java, BDD, Cucumber',
+                'exp2_date': 'Fev 2023 - Fev 2024', 'exp2_role': 'Quality Assurance', 'exp2_company': 'SPMS - Ministério da Saúde',
+                'exp2_desc': '<li>Analisei requisitos no Jira para criar casos de teste e aumentar a cobertura.</li><li>Executei e documentei testes de aceitação para garantir conformidade com os requisitos.</li><li>Realizei testes exploratórios, identificando falhas críticas não cobertas.</li><li>Conduzi testes de regressão em cada sprint, reduzindo bugs recorrentes.</li><li>Participei de reuniões ágeis, oferecendo insights que aprimoraram o desenvolvimento.</li>',
+                'exp2_tools': 'Jira, Postman, SQL, Git, GitLab, Azure DevOps, Robot Framework, BDD.',
+                'exp3_date': 'Jan 2022 - Fev 2023', 'exp3_role': 'Quality Assurance Engineer', 'exp3_company': 'Tray - E-commerce',
+                'exp3_desc': '<li>Desenvolvi e mantive mais de 200 testes automatizados em Cypress e Capybara, reduzindo o tempo de testes.</li><li>Aprimorei o framework de automação, aumentando a reutilização de código.</li><li>Identifiquei e documentei bugs críticos com evidências detalhadas.</li><li>Configurei e otimizei CI/CD no GitLab, reduzindo o tempo de integração.</li><li>Criei documentação técnica e guias de melhores práticas.</li><li>Acompanhei implantações em produção, oferecendo suporte técnico imediato.</li><li>Implementei testes de performance com K6, melhorando o tempo de resposta.</li><li>Compartilhei conhecimento em sessões de pair programming e workshops.</li>',
+                'exp3_tools': 'Git, GitLab, JavaScript, Cypress, Docker, K6, Jest, Ymal, Vue, Ruby',
+                'exp4_date': 'Jul 2019 - Dez 2021', 'exp4_role': 'Quality Assurance', 'exp4_company': 'Auto Bem - Seguro de veículos',
+                'exp4_desc': '<li>Elaborei mais de 500 casos de teste para aplicações web, assegurando cobertura total dos requisitos.</li><li>Implementei um sistema de reporte de bugs no Azure DevOps, melhorando a eficiência na correção.</li><li>Realizei testes manuais rigorosos de UI/UX, funcionalidade, integração e compatibilidade.</li><li>Analisei requisitos técnicos e de negócio, identificando ambiguidades e riscos antes do desenvolvimento.</li><li>Utilizei o Postman para testar APIs REST, garantindo a integridade dos endpoints.</li><li>Colaborei com desenvolvedores e product owners para esclarecer requisitos e expectativas.</li><li>Contribuí para processos de qualidade que reduziram bugs em produção.</li>',
+                'exp4_tools': 'Cypress, Git, Azure, Postman, Ymal, Javascript, Angular, C#',
+                'portfolio_title': 'Portfólio', 'portfolio_subtitle': 'Uma coleção de trabalhos que refletem a minha paixão pela qualidade e pela criatividade.',
+                'project1_title': 'Teste API com SuperTest', 'project1_desc': 'Testes de integração para APIs REST.',
+                'project2_title': 'Testes E2E com Cypress', 'project2_desc': 'Automação de testes End-to-End.',
+                'project3_title': 'Testes de Performance', 'project3_desc': 'Testes de carga e stress com K6.',
+                'project_button': 'Ver Projeto',
+                'contact_subtitle': 'Vamos Conversar?', 'contact_title': 'Inicie um Projeto Comigo', 'contact_desc': 'Seja para discutir uma oportunidade de trabalho, um projeto criativo ou apenas para trocar ideias, a minha caixa de entrada está sempre aberta.', 'contact_button': 'Enviar Mensagem',
+                'footer_text': '&copy; 2024 Wenderson Monteiro. Design e desenvolvimento com <span class="accent-color">&hearts;</span>.'
+            },
+            'en': {
+                'nav_about': 'About', 'nav_experience': 'Experience', 'nav_portfolio': 'Portfolio', 'nav_contact': 'Contact', 'nav_cv': 'Download CV',
+                'nav_about_mobile': 'About', 'nav_experience_mobile': 'Experience', 'nav_portfolio_mobile': 'Portfolio', 'nav_contact_mobile': 'Contact',
+                'hero_subtitle': 'Quality Assurance.', 'hero_button': 'Explore Projects',
+                'about_title': 'About Me',
+                'about_p1': 'My journey is fueled by curiosity. Whether testing the robustness of software or exploring a new photographic composition, my passion lies in finding quality and beauty in the details.',
+                'about_subtitle': 'From QA to Creative',
+                'about_p2': 'With 5 years in Quality Assurance, I learned that a successful product goes beyond code: it\'s about the experience. This realization led me to explore design and photography, where I apply the same attention to detail and rigor to create something meaningful.',
+                'about_p3': 'I believe my technical experience in QA, combined with a creative eye, gives me a unique perspective. I can not only identify what is wrong but also envision what could be better, more intuitive, and more beautiful.',
+                'about_p4': 'I am looking for projects where I can unite these two worlds, contributing to creating products that not only work perfectly but also delight and inspire.',
+                'about_education_title': 'Education and Certifications',
+                'about_degree': 'Degree, Systems Analysis and Development',
+                'about_cert': 'Certified Tester, Foundation Level - CTFL',
+                'experience_title': 'Professional Journey',
+                'exp_tools_title': 'Tools used:',
+                'exp1_date': 'Jun 2024 - Present', 'exp1_role': 'Quality Assurance', 'exp1_company': 'Informatics Institute - Social Security',
+                'exp1_desc': '<li>I perform manual functional tests to ensure the quality of management software.</li><li>I conduct integration tests between modules and systems to ensure consistency.</li><li>I perform database tests to verify integrity and security.</li><li>SOAP tests to validate communication between APIs and services.</li><li>I analyze business requirements and translate them into comprehensive test cases.</li><li>I actively participate in agile ceremonies, providing feedback.</li>',
+                'exp1_tools': 'SQL Server, BugZilla, TestLink, Postman, Selenium, Java, BDD, Cucumber',
+                'exp2_date': 'Feb 2023 - Feb 2024', 'exp2_role': 'Quality Assurance', 'exp2_company': 'SPMS - Ministry of Health',
+                'exp2_desc': '<li>Analyzed requirements in Jira to create test cases and increase coverage.</li><li>Executed and documented acceptance tests to ensure compliance with requirements.</li><li>Performed exploratory testing, identifying critical uncovered flaws.</li><li>Conducted regression tests in each sprint, reducing recurring bugs.</li><li>Participated in agile meetings, offering insights that improved development.</li>',
+                'exp2_tools': 'Jira, Postman, SQL, Git, GitLab, Azure DevOps, Robot Framework, BDD.',
+                'exp3_date': 'Jan 2022 - Feb 2023', 'exp3_role': 'Quality Assurance Engineer', 'exp3_company': 'Tray - E-commerce',
+                'exp3_desc': '<li>Developed and maintained over 200 automated tests in Cypress and Capybara, reducing testing time.</li><li>Enhanced the automation framework, increasing code reusability.</li><li>Identified and documented critical bugs with detailed evidence.</li><li>Configured and optimized CI/CD in GitLab, reducing integration time.</li><li>Created technical documentation and best practice guides.</li><li>Monitored production deployments, providing immediate technical support.</li><li>Implemented performance tests with K6, improving response time.</li><li>Shared knowledge in pair programming sessions and workshops.</li>',
+                'exp3_tools': 'Git, GitLab, JavaScript, Cypress, Docker, K6, Jest, Ymal, Vue, Ruby',
+                'exp4_date': 'Jul 2019 - Dec 2021', 'exp4_role': 'Quality Assurance', 'exp4_company': 'Auto Bem - Vehicle Insurance',
+                'exp4_desc': '<li>Developed over 500 test cases for web applications, ensuring full requirements coverage.</li><li>Implemented a bug reporting system in Azure DevOps, improving correction efficiency.</li><li>Performed rigorous manual tests for UI/UX, functionality, integration, and compatibility.</li><li>Analyzed technical and business requirements, identifying ambiguities and risks before development.</li><li>Used Postman to test REST APIs, ensuring endpoint integrity.</li><li>Collaborated with developers and product owners to clarify requirements and expectations.</li><li>Contributed to quality processes that reduced bugs in production.</li>',
+                'exp4_tools': 'Cypress, Git, Azure, Postman, Ymal, Javascript, Angular, C#',
+                'portfolio_title': 'Portfolio', 'portfolio_subtitle': 'A collection of works that reflect my passion for quality and creativity.',
+                'project1_title': 'API Testing with SuperTest', 'project1_desc': 'Integration tests for REST APIs.',
+                'project2_title': 'E2E Tests with Cypress', 'project2_desc': 'End-to-End test automation.',
+                'project3_title': 'Performance Testing', 'project3_desc': 'Load and stress testing with K6.',
+                'project_button': 'View Project',
+                'contact_subtitle': 'Let\'s Talk?', 'contact_title': 'Start a Project With Me', 'contact_desc': 'Whether to discuss a job opportunity, a creative project, or just to exchange ideas, my inbox is always open.', 'contact_button': 'Send Message',
+                'footer_text': '&copy; 2024 Wenderson Monteiro. Designed and developed with <span class="accent-color">&hearts;</span>.'
+            }
+        };
+
+        // --- Lógica do Tema (Dark/Light Mode) ---
+        const themeTogglers = document.querySelectorAll('#theme-toggle, #theme-toggle-mobile');
+        const sunIcon = 'sun';
+        const moonIcon = 'moon';
+
+        function applyTheme(theme) {
+            const isDark = theme === 'dark';
+            document.documentElement.classList.toggle('dark', isDark);
+            localStorage.setItem('theme', theme);
+
+            // Atualiza todos os ícones
+            document.querySelectorAll('#theme-toggle-icon, #theme-toggle-icon-mobile').forEach(iconEl => {
+                iconEl.setAttribute('data-lucide', isDark ? moonIcon : sunIcon);
+            });
+            lucide.createIcons(); // Recria os ícones para que a mudança seja visível
+        }
+
+        themeTogglers.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const currentTheme = localStorage.getItem('theme') === 'dark' ? 'light' : 'dark';
+                applyTheme(currentTheme);
+            });
+        });
+
+        // --- Lógica da Tradução ---
+        const langButtons = {
+            pt: document.querySelectorAll('#lang-pt, #lang-pt-mobile'),
+            en: document.querySelectorAll('#lang-en, #lang-en-mobile')
+        };
+
+        function setLanguage(lang) {
+            document.querySelectorAll('[data-translate-key]').forEach(el => {
+                const key = el.getAttribute('data-translate-key');
+                if (translations[lang] && translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+            document.documentElement.lang = lang === 'pt' ? 'pt-PT' : 'en';
+            localStorage.setItem('language', lang);
+            updateLangButtons(lang);
+        }
+
+        function updateLangButtons(activeLang) {
+            Object.keys(langButtons).forEach(lang => {
+                const is_active = lang === activeLang;
+                langButtons[lang].forEach(btn => {
+                    btn.classList.toggle('opacity-50', !is_active);
+                    btn.classList.toggle('opacity-100', is_active);
+                });
+            });
+        }
+
+        Object.entries(langButtons).forEach(([lang, buttons]) => {
+            buttons.forEach(btn => btn.addEventListener('click', () => setLanguage(lang)));
+        });
+
+        // --- Inicialização Geral ---
+        document.addEventListener('DOMContentLoaded', () => {
+            // Define o tema inicial
+            const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            applyTheme(savedTheme);
+
+            // Define o idioma inicial
+            const savedLang = localStorage.getItem('language') || 'pt';
+            setLanguage(savedLang);
+
+            // Animações com ScrollReveal
+            const sr = ScrollReveal({
+                distance: '50px',
+                duration: 1500,
+                easing: 'cubic-bezier(0.5, 0, 0, 1)',
+                reset: false
+            });
+            sr.reveal('.section-title', { delay: 100, origin: 'top' });
+            sr.reveal('.section-content', { delay: 200, origin: 'bottom', interval: 100 });
+            sr.reveal('.animate-fade-in-up', { delay: 200, origin: 'bottom', interval: 150 });
+
+            // Efeito de sombra no header ao fazer scroll
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                header.classList.toggle('header-shadow', window.scrollY > 20);
+            });
+
+            // Funcionalidade do Menu Mobile
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
