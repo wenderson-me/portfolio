@@ -5,7 +5,7 @@ export const personalInfo = {
     pt: 'Quality Assurance Engineer',
     en: 'Quality Assurance Engineer'
   },
-  profileImage: 'https://media.licdn.com/dms/image/v2/C4E03AQG6kluH8Pe-Gw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1629807000416?e=1756339200&v=beta&t=j0dMA1kKLL7ri1QQXMHgnTdNyVQJTKYJ5YxH-BPLbE0',
+  profileImage: 'https://media.licdn.com/dms/image/v2/C4E03AQG6kluH8Pe-Gw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1629807000416?e=1756944000&v=beta&t=Ro8v3O1_f5bYt3KiZhYfCTwnalmo37060KgWsaKzYF4',
   contact: {
     email: 'wendrson22@gmail.com',
     github: 'https://github.com/wenderson-me',
