@@ -4,7 +4,7 @@ import path from "path";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 
 export default defineConfig({
-  base: "/", // Corrigido para raiz, compatível com Vercel
+  base: "/Portfolio",
   plugins: [
     react(),
     runtimeErrorOverlay(),
