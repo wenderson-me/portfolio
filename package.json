@@ -6,13 +6,11 @@
   "license": "MIT",
   "scripts": {
     "dev": "tsx server/index.ts",
-    "build": "vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist",
+"build": "vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist",    "build:vercel": "vite build",
     "start": "NODE_ENV=production node dist/index.js",
     "preview": "vite preview",
     "check": "tsc",
-    "db:push": "drizzle-kit push",
-    "pre-deploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "db:push": "drizzle-kit push"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
