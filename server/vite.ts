@@ -35,7 +35,7 @@ export async function setupVite(app: Express, server: Server) {
         process.exit(1);
       },
     },
-    server: serverOptions,
+    server: serverOptions as any,
     appType: "custom",
   });
 
@@ -64,7 +64,6 @@ export async function setupVite(app: Express, server: Server) {
 }
 
 export function serveStatic(app: Express) {
-  // Corrigido: servir estáticos diretamente de dist/
   const distPath = path.resolve(import.meta.dirname, "..", "dist");
 
   log(`A procurar pelo diretório de build em: ${distPath}`);
