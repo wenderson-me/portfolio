@@ -64,8 +64,8 @@ export async function setupVite(app: Express, server: Server) {
 }
 
 export function serveStatic(app: Express) {
-
-  const distPath = path.resolve(import.meta.dirname, "..", "dist", "public");
+  // Corrigido: servir estáticos diretamente de dist/
+  const distPath = path.resolve(import.meta.dirname, "..", "dist");
 
   log(`A procurar pelo diretório de build em: ${distPath}`);
 
