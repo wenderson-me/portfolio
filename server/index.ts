@@ -3,6 +3,7 @@ import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
 
 const app = express();
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
@@ -24,11 +25,9 @@ app.use((req, res, next) => {
       if (capturedJsonResponse) {
         logLine += ` :: ${JSON.stringify(capturedJsonResponse)}`;
       }
-
       if (logLine.length > 80) {
         logLine = logLine.slice(0, 79) + "…";
       }
-
       log(logLine);
     }
   });
@@ -36,24 +35,29 @@ app.use((req, res, next) => {
   next();
 });
 
-(async () => {
+async function configureApp() {
   const server = await registerRoutes(app);
 
   app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
     const status = err.status || err.statusCode || 500;
     const message = err.message || "Internal Server Error";
-
     res.status(status).json({ message });
-    throw err;
+    console.error(err);
   });
 
-  if (app.get("env") === "development") {
+  if (process.env.NODE_ENV === "development") {
     await setupVite(app, server);
   } else {
     serveStatic(app);
   }
 
- server.listen(5000, '127.0.0.1', () => {
-  console.log('Server running on http://127.0.0.1:5000');
-});
-})();
+  if (process.env.NODE_ENV === "development") {
+    server.listen(5000, '127.0.0.1', () => {
+      console.log('Servidor de desenvolvimento a correr em http://127.0.0.1:5000');
+    });
+  }
+}
+
+configureApp();
+
+export default app;
