@@ -72,16 +72,12 @@ export default function Portfolio() {
                   {item.label}
                 </button>
               ))}
-
-              <a
-                href="./cv_.html"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300 font-semibold px-4 py-2 rounded-md hover:bg-purple-200 dark:hover:bg-purple-900 transition-all duration-300 flex items-center"
-              >
-                <Download className="w-4 h-4 mr-2" />
-                Download CV
-              </a>
+                <button
+                  disabled
+                  className="bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300 font-semibold px-4 py-2 rounded-md flex items-center opacity-60 cursor-not-allowed">
+                  <Download className="w-4 h-4 mr-2" />
+                  Download CV
+                </button>
 
               <div className="flex items-center border-l border-gray-300 dark:border-gray-600 pl-6 ml-2">
                 <button
