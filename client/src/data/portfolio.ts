@@ -209,19 +209,35 @@ export const portfolioProjects = [
     image: 'https://placehold.co/600x400/1e293b/a7f3d0?text=Cypress+Advanced',
     github: 'https://github.com/wenderson-me/advanced-cypress'
   },
-  {
-    id: '3',
-    title: {
-      pt: 'Testes de Performance',
-      en: 'Performance Testing'
-    },
-    description: {
-      pt: 'Testes de carga e stress com K6.',
-      en: 'Load and stress testing with K6.'
-    },
-    image: 'https://placehold.co/600x400/1e293b/fde68a?text=K6+Performance',
-    github: 'https://github.com/wenderson-me/study-k6'
-  }
+
+  // {
+  //   id: '3',
+  //   title: {
+  //     pt: 'Testes de Performance',
+  //     en: 'Performance Testing'
+  //   },
+  //   description: {
+  //     pt: 'Testes de carga e stress com K6.',
+  //     en: 'Load and stress testing with K6.'
+  //   },
+  //   image: 'https://placehold.co/600x400/1e293b/fde68a?text=K6+Performance',
+  //   github: 'https://github.com/wenderson-me/study-k6'
+  // },
+
+   {
+     id: '4',
+     title: {
+       pt: 'Testes com Playwright',
+       en: 'Testing with Playwright'
+     },
+     description: {
+       pt: 'Automação de testes com Playwright.',
+       en: 'Test automation with Playwright.'
+     },
+    image: 'https://placehold.co/600x400/1e293b/fcd34d?text=Playwright+Testing',
+    github: 'https://github.com/wenderson-me/playwright-javascript-automation/'
+   }
+
 ];
 
 export const contactContent = {
