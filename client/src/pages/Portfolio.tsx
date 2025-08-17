@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sun, Moon, Menu, X, Download, Mail, Github, MapPin } from 'lucide-react';
+import Resume from '../components/Resume';
 import { personalInfo, aboutContent, experiences, education, certification, skills, portfolioProjects, contactContent } from '../data/portfolio';
 
 export default function Portfolio() {
@@ -46,6 +47,25 @@ export default function Portfolio() {
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+      {/* Resume Modal */}
+      <dialog id="resume-modal" className="modal bg-black/30 backdrop-blur-sm z-50 rounded-lg overflow-visible">
+        <div className="bg-white dark:bg-gray-900 rounded-lg shadow-xl max-w-5xl w-full max-h-[80vh] overflow-auto m-4 border border-purple-200 dark:border-purple-800">
+          <div className="p-4 flex justify-between items-center border-b border-purple-200 dark:border-purple-800 bg-purple-50 dark:bg-purple-900/20">
+            <h2 className="text-xl font-bold text-purple-800 dark:text-purple-300">
+              {language === 'pt' ? 'Currículo' : 'Resume'}
+            </h2>
+            <button 
+              onClick={() => document.getElementById('resume-modal')?.close()}
+              className="p-2 rounded-lg hover:bg-purple-100 dark:hover:bg-purple-800/50 transition-colors"
+            >
+              <X className="w-5 h-5 text-purple-700 dark:text-purple-300" />
+            </button>
+          </div>
+          <div className="p-4">
+            <Resume language={language} />
+          </div>
+        </div>
+      </dialog>
       {/* Header */}
       <motion.header
         initial={{ y: -100 }}
@@ -73,8 +93,8 @@ export default function Portfolio() {
                 </button>
               ))}
                 <button
-                  disabled
-                  className="bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300 font-semibold px-4 py-2 rounded-md flex items-center opacity-60 cursor-not-allowed">
+                  onClick={() => document.getElementById('resume-modal')?.showModal()}
+                  className="bg-purple-600 hover:bg-purple-700 dark:bg-purple-500 dark:hover:bg-purple-600 text-white font-semibold px-4 py-2 rounded-md flex items-center transition-colors">
                   <Download className="w-4 h-4 mr-2" />
                   Download CV
                 </button>
