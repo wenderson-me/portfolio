@@ -18,7 +18,7 @@ export const aboutContent = {
     subtitle: 'De QA a Criativo',
     paragraphs: [
       'A minha jornada é alimentada pela curiosidade. Seja a testar a solidez de um software ou a explorar uma nova composição fotográfica, a minha paixão está em encontrar a qualidade e a beleza nos detalhes.',
-      'Com 5 anos em Quality Assurance, aprendi que um produto de sucesso vai além do código: trata-se da experiência. Essa perceção levou-me a explorar o design e a fotografia, onde aplico a mesma atenção ao detalhe e o mesmo rigor para criar algo significativo.',
+      'Com mais de 5 anos em Quality Assurance, aprendi que um produto de sucesso vai além do código: trata-se da experiência. Essa perceção levou-me a explorar o design e a fotografia, onde aplico a mesma atenção ao detalhe e o mesmo rigor para criar algo significativo.',
       'Acredito que a minha experiência técnica em QA, combinada com um olhar criativo, me oferece uma perspetiva única. Consigo não só identificar o que está errado, mas também visualizar o que poderia ser melhor, mais intuitivo e mais belo.',
       'Estou à procura de projetos onde possa unir estes dois mundos, contribuindo para criar produtos que não só funcionam na perfeição, mas que também encantam e inspiram.'
     ]
@@ -27,7 +27,7 @@ export const aboutContent = {
     subtitle: 'From QA to Creative',
     paragraphs: [
       'My journey is fueled by curiosity. Whether testing software robustness or exploring a new photographic composition, my passion lies in finding quality and beauty in the details.',
-      'With 5 years in Quality Assurance, I learned that a successful product goes beyond code: it\'s about experience. This insight led me to explore design and photography, where I apply the same attention to detail and rigor to create something meaningful.',
+      'With more than 5 years in Quality Assurance, I learned that a successful product goes beyond code: it\'s about experience. This insight led me to explore design and photography, where I apply the same attention to detail and rigor to create something meaningful.',
       'I believe my technical QA experience, combined with a creative eye, offers me a unique perspective. I can not only identify what\'s wrong but also visualize what could be better, more intuitive, and more beautiful.',
       'I\'m looking for projects where I can unite these two worlds, contributing to creating products that not only work perfectly but also delight and inspire.'
     ]
