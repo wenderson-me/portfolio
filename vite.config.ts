@@ -34,4 +34,7 @@ export default defineConfig({
       deny: ["**/.*"],
     },
   },
+  optimizeDeps: {
+    include: ['html2pdf.js']
+  },
 });
