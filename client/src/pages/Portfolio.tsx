@@ -10,6 +10,7 @@ export default function Portfolio() {
   const [isDark, setIsDark] = useState(false);
   const [language, setLanguage] = useState<'pt' | 'en'>('pt');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isResumeModalOpen, setIsResumeModalOpen] = useState(false);
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('portfolio-theme');
@@ -39,10 +40,11 @@ export default function Portfolio() {
   };
 
   const navItems = [
-    { key: 'about', href: 'about', label: language === 'pt' ? 'Sobre' : 'About' },
-    { key: 'experience', href: 'experience', label: language === 'pt' ? 'Experiência' : 'Experience' },
-    { key: 'portfolio', href: 'portfolio', label: language === 'pt' ? 'Portfólio' : 'Portfolio' },
-    { key: 'contact', href: 'contact', label: language === 'pt' ? 'Contato' : 'Contact' }
+  { key: 'about', href: 'about', label: language === 'pt' ? 'Sobre' : 'About' },
+  { key: 'experience', href: 'experience', label: language === 'pt' ? 'Experiência' : 'Experience' },
+  { key: 'portfolio', href: 'portfolio', label: language === 'pt' ? 'Portfólio' : 'Portfolio' },
+  { key: 'contact', href: 'contact', label: language === 'pt' ? 'Contato' : 'Contact' },
+  { key: 'blog', href: 'blog', label: language === 'pt' ? 'Blog' : 'Blog' }
   ];
 
   return (
@@ -54,8 +56,8 @@ export default function Portfolio() {
             <h2 className="text-xl font-bold text-purple-800 dark:text-purple-300">
               {language === 'pt' ? 'Currículo' : 'Resume'}
             </h2>
-            <button 
-              onClick={() => document.getElementById('resume-modal')?.close()}
+            <button
+              onClick={() => (document.getElementById('resume-modal') as HTMLDialogElement)?.close()}
               className="p-2 rounded-lg hover:bg-purple-100 dark:hover:bg-purple-800/50 transition-colors"
             >
               <X className="w-5 h-5 text-purple-700 dark:text-purple-300" />
@@ -83,18 +85,28 @@ export default function Portfolio() {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-6 text-sm">
-              {navItems.map((item) => (
+              {navItems.map((item) =>
+                item.key === 'blog' ? (
+                  <button
+                    key={item.key}
+                    onClick={() => { window.location.href = '/blog'; setIsMobileMenuOpen(false); }}
+                    className="text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors font-medium"
+                  >
+                    {item.label}
+                  </button>
+                ) : (
+                  <button
+                    key={item.key}
+                    onClick={() => scrollToSection(item.href)}
+                    className="text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors font-medium"
+                  >
+                    {item.label}
+                  </button>
+                )
+              )}
                 <button
-                  key={item.key}
-                  onClick={() => scrollToSection(item.href)}
-                  className="text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors font-medium"
-                >
-                  {item.label}
-                </button>
-              ))}
-                <button
-                  onClick={() => document.getElementById('resume-modal')?.showModal()}
-                  className="bg-purple-600 hover:bg-purple-700 dark:bg-purple-500 dark:hover:bg-purple-600 text-white font-semibold px-4 py-2 rounded-md flex items-center transition-colors">
+                  onClick={() => (document.getElementById('resume-modal') as HTMLDialogElement)?.showModal()}
+                  className="bg-purple-600 hover:bg-purple-700 dark:bg-purple-500 dark:hover:bg-purple-600 text-white font-semibold px-4 py-2 rounded-full flex items-center transition-colors">
                   <Download className="w-4 h-4 mr-2" />
                   Download CV
                 </button>
@@ -188,15 +200,25 @@ export default function Portfolio() {
                 </div>
 
                 <div className="space-y-4">
-                  {navItems.map((item) => (
-                    <button
-                      key={item.key}
-                      onClick={() => scrollToSection(item.href)}
-                      className="block w-full text-left px-4 py-3 text-lg font-medium text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg transition-colors"
-                    >
-                      {item.label}
-                    </button>
-                  ))}
+                  {navItems.map((item) =>
+                    item.key === 'blog' ? (
+                      <button
+                        key={item.key}
+                        onClick={() => { window.location.href = '/blog'; setIsMobileMenuOpen(true); }}
+                        className="block w-full text-left px-4 py-3 text-lg font-medium text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg transition-colors"
+                      >
+                        {item.label}
+                      </button>
+                    ) : (
+                      <button
+                        key={item.key}
+                        onClick={() => scrollToSection(item.href)}
+                        className="block w-full text-left px-4 py-3 text-lg font-medium text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg transition-colors"
+                      >
+                        {item.label}
+                      </button>
+                    )
+                  )}
 
                   <div className="border-t border-gray-200 dark:border-gray-700 pt-4 mt-6">
                     <div className="flex items-center justify-between mb-4">

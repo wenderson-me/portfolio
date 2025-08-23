@@ -1,5 +1,5 @@
 import React from 'react';
-import {useRef, useState } from 'react';
+import {useRef } from 'react';
 import { personalInfo, aboutContent, experiences, education, certification, skills } from '../data/portfolio';
 import html2pdf from 'html2pdf.js';
 
@@ -9,7 +9,6 @@ interface ResumeProps {
 }
 
 const Resume: React.FC<ResumeProps> = ({ language }) => {
-  const [showModal, setShowModal] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
 
   const handleDownloadPDF = () => {
@@ -18,7 +17,7 @@ const Resume: React.FC<ResumeProps> = ({ language }) => {
         .set({
           margin: 0,
           filename: `${personalInfo.name}_${language === 'pt' ? 'Curriculo' : 'Resume'}.pdf`,
-          html2canvas: { scale: 1 },
+          html2canvas: { scale: window.devicePixelRatio, backgroundColor: '#ffffff' },
           jsPDF: { orientation: 'portrait', unit: 'mm', format: 'a4' }
         })
         .from(modalRef.current)
@@ -31,8 +30,8 @@ const Resume: React.FC<ResumeProps> = ({ language }) => {
     <div className="flex flex-col items-center">
       <div
         ref={modalRef}
-        className="w-[210mm] h-[297mm] bg-white text-black p-8 shadow-lg my-8 mx-auto"
-        style={{ fontFamily: '"Inter", sans-serif' }}
+        className="w-[210mm] h-[297mm] bg-white text-black p-8"
+        style={{ fontFamily: '"Inter", sans-serif', background: '#fff', color: '#000' }}
       >
         {/* Header */}
         <div className="flex justify-between items-start mb-6">
@@ -135,7 +134,7 @@ const Resume: React.FC<ResumeProps> = ({ language }) => {
 
       <button
         onClick={handleDownloadPDF}
-        className="bg-purple-600 hover:bg-purple-700 dark:bg-purple-500 dark:hover:bg-purple-600 text-white font-semibold px-4 py-2 rounded-md flex items-center mb-8 transition-colors"
+        className="bg-purple-600 hover:bg-purple-700 dark:bg-purple-500 dark:hover:bg-purple-600 text-white font-semibold px-4 py-2 rounded-full flex items-center mb-8 transition-colors"
       >
         <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />

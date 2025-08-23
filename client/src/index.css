@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 @tailwind base;
@@ -25,7 +26,7 @@
   --destructive-foreground: hsl(210, 40%, 98%);
   --ring: hsl(262, 83%, 58%);
   --radius: 0.5rem;
-  
+
   /* Custom portfolio colors */
   --purple-50: hsl(270, 100%, 98%);
   --purple-100: hsl(269, 100%, 95%);
@@ -135,4 +136,22 @@
 
 .animate-slide-in-right {
   animation: slideInRight 0.5s ease-out forwards;
+}
+
+/* Estilos para blocos de código markdown */
+.prose pre, .prose-invert pre {
+  background: #18181b;
+  color: #fff;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  overflow-x: auto;
+  font-size: 0.95rem;
+  box-shadow: none;
+}
+.prose code, .prose-invert code {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+  border-radius: 0;
 }
