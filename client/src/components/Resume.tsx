@@ -16,9 +16,9 @@ const Resume: React.FC<ResumeProps> = ({ language }) => {
     if (modalRef.current) {
       html2pdf()
         .set({
-          margin: 0,
+          margin: 10,
           filename: `${personalInfo.name}_${language === 'pt' ? 'Curriculo' : 'Resume'}.pdf`,
-          html2canvas: { scale: 1 },
+          html2canvas: { scale: 2, backgroundColor: '#ffffff' },
           jsPDF: { orientation: 'portrait', unit: 'mm', format: 'a4' }
         })
         .from(modalRef.current)
@@ -31,7 +31,7 @@ const Resume: React.FC<ResumeProps> = ({ language }) => {
     <div className="flex flex-col items-center">
       <div
         ref={modalRef}
-        className="w-[210mm] h-[297mm] bg-white text-black p-8 shadow-lg my-8 mx-auto"
+        className="w-[210mm] h-[297mm] bg-white text-black p-8"
         style={{ fontFamily: '"Inter", sans-serif' }}
       >
         {/* Header */}
