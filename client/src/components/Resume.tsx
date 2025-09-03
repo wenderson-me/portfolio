@@ -19,7 +19,7 @@ const Resume: React.FC<ResumeProps> = ({ language }) => {
           margin: 10,
           filename: `${personalInfo.name}_${language === 'pt' ? 'Curriculo' : 'Resume'}.pdf`,
           html2canvas: { scale: 2, backgroundColor: '#ffffff' },
-          jsPDF: { orientation: 'portrait', unit: 'mm', format: 'a4' }
+          jsPDF: { orientation: 'portrait', unit: 'mm', format: 'a4',  }
         })
         .from(modalRef.current)
         .save();
@@ -69,7 +69,7 @@ const Resume: React.FC<ResumeProps> = ({ language }) => {
             {language === 'pt' ? 'Experiência' : 'Experience'}
           </h3>
           <div className="space-y-4">
-            {experiences.slice(0, 3).map((exp) => (
+            {experiences.slice(0, 4).map((exp) => (
               <div key={exp.id} className="text-sm">
                 <div className="flex justify-between">
                   <h4 className="font-medium text-gray-900">{exp.title} - {exp.company}</h4>

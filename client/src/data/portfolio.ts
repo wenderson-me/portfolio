@@ -38,8 +38,8 @@ export const experiences = [
   {
     id: '1',
     period: {
-      pt: 'Jun 2024 - Presente',
-      en: 'Jun 2024 - Present'
+      pt: 'Jun 2024 - Jul 2025',
+      en: 'Jun 2024 - Jul 2025'
     },
     title: 'Quality Assurance',
     company: 'Instituto Informática - Segurança Social',
