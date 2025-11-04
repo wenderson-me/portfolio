@@ -38,30 +38,36 @@ export const experiences = [
   {
     id: '1',
     period: {
-      pt: 'Jun 2024 - Jul 2025',
-      en: 'Jun 2024 - Jul 2025'
+      pt: 'Jun 2024 - Presente',
+      en: 'Jun 2024 - Present'
     },
     title: 'Quality Assurance',
     company: 'Instituto Informática - Segurança Social',
     description: {
       pt: [
-        'Realizo testes funcionais manuais para garantir a qualidade do software de gerenciamento.',
-        'Realizo testes de integração entre módulos e sistemas para assegurar consistência.',
-        'Realizo testes de banco de dados para verificar integridade e segurança.',
-        'Testes SOAP para validar comunicação entre APIs e serviços.',
-        'Analiso requisitos de negócios e os traduzo em casos de teste abrangentes.',
-        'Participo ativamente de cerimônias ágeis, oferecendo feedback.'
+        'Executo testes manuais funcionais e exploratórios detalhados para validar funcionalidades.',
+        'Realizo testes de integração entre múltiplos módulos, garantindo fluxo de dados consistente.',
+        'Desenvolvo e executo testes automatizados E2E com Cypress, cobrindo fluxos críticos de usuário e reduzindo tempo de validação.',
+        'Conduzo testes abrangentes de API REST e SOAP, validando contratos, payloads, autenticação e tratamento de erros.',
+        'Gerencio o ciclo de vida completo de bugs, desde identificação, documentação com evidências, priorização, resolução e reteste.',
+        'Implemento testes de API automatizados para validar endpoints, integrações e regras de negócio de forma contínua.',
+        'Executo testes de regressão manuais e automatizados após cada release, garantindo estabilidade e prevenindo reintrodução de defeitos.',
+        'Crio e mantenho casos de teste detalhados no TestLink, garantindo rastreabilidade completa e cobertura dos requisitos.',
+        'Colaboro ativamente com desenvolvedores e analistas em cerimônias ágeis, oferecendo feedback técnico para melhorar a qualidade.'
       ],
       en: [
-        'Perform manual functional testing to ensure management software quality.',
-        'Conduct integration testing between modules and systems to ensure consistency.',
-        'Perform database testing to verify integrity and security.',
-        'SOAP testing to validate communication between APIs and services.',
-        'Analyze business requirements and translate them into comprehensive test cases.',
-        'Actively participate in agile ceremonies, providing feedback.'
+        'Execute detailed functional and exploratory manual testing to validate critical functionalities and identify undocumented scenarios.',
+        'Perform integration testing between multiple modules and external systems, ensuring consistent data.',
+        'Develop and execute E2E automated tests with Cypress, covering critical user flows and reducing validation time.',
+        'Conduct comprehensive REST and SOAP API testing, validating contracts, payloads, authentication, and error handling.',
+        'Manage complete bug lifecycle, from identification, documentation with evidence, prioritization, resolution and retest.',
+        'Implement automated API tests to continuously validate endpoints, integrations, and business rules.',
+        'Execute manual and automated regression testing after each release, ensuring stability and preventing defect reintroduction.',
+        'Create and maintain detailed test cases in TestLink, ensuring complete traceability and requirements coverage.',
+        'Actively collaborate with developers and analysts in agile ceremonies, providing technical feedback to improve quality.'
       ]
     },
-    tools: 'SQL Server, BugZilla, TestLink, Postman, Selenium, Java, BDD, Cucumber'
+    tools: 'TestLink, Gitlab, Postman, Cypress, SQL Server, API'
   },
   {
     id: '2',

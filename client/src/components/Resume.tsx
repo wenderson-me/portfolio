@@ -44,7 +44,7 @@ const Resume: React.FC<ResumeProps> = ({ language }) => {
                 <span className="mr-2">📧</span> {personalInfo.contact.email}
               </p>
               <p className="flex items-center mb-1">
-                <span className="mr-2">🔗</span> github.com/wenderson-me
+                <span className="mr-2">🔗</span> wenderson-me.vercel.app/
               </p>
               <p className="flex items-center">
                 <span className="mr-2">📍</span> {personalInfo.contact.location}
