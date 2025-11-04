@@ -1,8 +1,8 @@
 import React from 'react';
-import {useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { personalInfo, aboutContent, experiences, education, certification, skills } from '../data/portfolio';
-import html2pdf from 'html2pdf.js';
-
+import { pdf } from '@react-pdf/renderer';
+import ResumePDF from './ResumePDF';
 
 interface ResumeProps {
   language: 'pt' | 'en';
@@ -12,21 +12,19 @@ const Resume: React.FC<ResumeProps> = ({ language }) => {
   const [showModal, setShowModal] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
 
-  const handleDownloadPDF = () => {
-    if (modalRef.current) {
-      html2pdf()
-        .set({
-          margin: 10,
-          filename: `${personalInfo.name}_${language === 'pt' ? 'Curriculo' : 'Resume'}.pdf`,
-          html2canvas: { scale: 2, backgroundColor: '#ffffff' },
-          jsPDF: { orientation: 'portrait', unit: 'mm', format: 'a4',  }
-        })
-        .from(modalRef.current)
-        .save();
+  const handleDownloadPDF = async () => {
+    try {
+      const blob = await pdf(<ResumePDF language={language} />).toBlob();
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `${personalInfo.name}_${language === 'pt' ? 'Curriculo' : 'Resume'}.pdf`;
+      link.click();
+      URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error('Erro ao gerar PDF:', error);
     }
   };
-
-
   return (
     <div className="flex flex-col items-center">
       <div
