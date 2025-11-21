@@ -32,7 +32,6 @@ const Resume: React.FC<ResumeProps> = ({ language }) => {
         className="w-[210mm] h-[297mm] bg-white text-black p-8"
         style={{ fontFamily: '"Inter", sans-serif' }}
       >
-        {/* Header */}
         <div className="flex justify-between items-start mb-6">
           <div>
             <h1 className="text-2xl font-bold text-gray-900">{personalInfo.name}</h1>
@@ -51,7 +50,6 @@ const Resume: React.FC<ResumeProps> = ({ language }) => {
           </div>
         </div>
 
-        {/* About - Shortened */}
         <div className="mb-6">
           <h3 className="text-lg font-semibold border-b border-gray-300 pb-1 mb-2">
             {language === 'pt' ? 'Sobre' : 'About'}
@@ -61,7 +59,6 @@ const Resume: React.FC<ResumeProps> = ({ language }) => {
           </p>
         </div>
 
-        {/* Experience */}
         <div className="mb-6">
           <h3 className="text-lg font-semibold border-b border-gray-300 pb-1 mb-2">
             {language === 'pt' ? 'Experiência' : 'Experience'}
@@ -86,7 +83,6 @@ const Resume: React.FC<ResumeProps> = ({ language }) => {
           </div>
         </div>
 
-        {/* Skills */}
         <div className="mb-6">
           <h3 className="text-lg font-semibold border-b border-gray-300 pb-1 mb-2">
             {language === 'pt' ? 'Habilidades' : 'Skills'}
@@ -103,7 +99,6 @@ const Resume: React.FC<ResumeProps> = ({ language }) => {
           </div>
         </div>
 
-        {/* Education */}
         <div className="mb-6">
           <h3 className="text-lg font-semibold border-b border-gray-300 pb-1 mb-2">
             {language === 'pt' ? 'Educação' : 'Education'}
@@ -119,7 +114,6 @@ const Resume: React.FC<ResumeProps> = ({ language }) => {
           </div>
         </div>
 
-        {/* Certifications */}
         <div>
           <h3 className="text-lg font-semibold border-b border-gray-300 pb-1 mb-2">
             {language === 'pt' ? 'Certificações' : 'Certifications'}
