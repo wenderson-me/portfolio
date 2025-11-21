@@ -1,4 +1,3 @@
-// Portfolio data extracted from the HTML files
 export const personalInfo = {
   name: 'Wenderson Monteiro',
   title: {
