@@ -47,7 +47,6 @@ export default function Portfolio() {
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
-      {/* Resume Modal */}
       <dialog id="resume-modal" className="modal bg-black/30 backdrop-blur-sm z-50 rounded-lg overflow-visible">
         <div className="bg-white dark:bg-gray-900 rounded-lg shadow-xl max-w-5xl w-full max-h-[80vh] overflow-auto m-4 border border-purple-200 dark:border-purple-800">
           <div className="p-4 flex justify-between items-center border-b border-purple-200 dark:border-purple-800 bg-purple-50 dark:bg-purple-900/20">
@@ -66,7 +65,6 @@ export default function Portfolio() {
           </div>
         </div>
       </dialog>
-      {/* Header */}
       <motion.header
         initial={{ y: -100 }}
         animate={{ y: 0 }}
@@ -81,7 +79,6 @@ export default function Portfolio() {
               WM<span className="text-purple-600 dark:text-purple-400">.</span>
             </button>
 
-            {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-6 text-sm">
               {navItems.map((item) => (
                 <button
@@ -143,7 +140,6 @@ export default function Portfolio() {
               </div>
             </div>
 
-            {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
@@ -158,7 +154,6 @@ export default function Portfolio() {
         </nav>
       </motion.header>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <>
@@ -221,7 +216,6 @@ export default function Portfolio() {
       </AnimatePresence>
 
       <main className="pt-24">
-        {/* Hero Section */}
         <section id="hero" className="min-h-screen flex flex-col justify-center items-center text-center px-6 bg-gray-50 dark:bg-gray-900">
           <div className="max-w-4xl">
             <motion.h1
@@ -254,7 +248,6 @@ export default function Portfolio() {
           </div>
         </section>
 
-        {/* About Section */}
         <section id="about" className="py-24 bg-white dark:bg-gray-800">
           <div className="container mx-auto px-6">
             <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
@@ -320,7 +313,6 @@ export default function Portfolio() {
           </div>
         </section>
 
-        {/* Experience Section */}
         <section id="experience" className="py-24 bg-gray-50 dark:bg-gray-900">
           <div className="container mx-auto px-6">
             <div className="max-w-4xl mx-auto">
@@ -386,7 +378,6 @@ export default function Portfolio() {
           </div>
         </section>
 
-        {/* Portfolio Section */}
         <section id="portfolio" className="py-24 bg-gray-50 dark:bg-gray-900">
           <div className="container mx-auto px-6">
             <motion.div
@@ -440,7 +431,6 @@ export default function Portfolio() {
           </div>
         </section>
 
-        {/* Contact Section */}
         <section id="contact" className="py-24 bg-white dark:bg-gray-800">
           <div className="container mx-auto px-6">
             <div className="max-w-4xl mx-auto">
@@ -547,7 +537,6 @@ export default function Portfolio() {
         </section>
       </main>
 
-      {/* Footer */}
       <footer className="py-8 bg-gray-50 dark:bg-gray-900">
         <div className="container mx-auto px-6 text-center text-gray-600 dark:text-gray-400">
           <div className="flex justify-center items-center space-x-6 mb-4">
