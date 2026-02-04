@@ -4,7 +4,7 @@ export const personalInfo = {
     pt: 'Quality Assurance Engineer',
     en: 'Quality Assurance Engineer'
   },
-  profileImage: 'https://media.licdn.com/dms/image/v2/C4E03AQG6kluH8Pe-Gw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1629807000416?e=1756944000&v=beta&t=Ro8v3O1_f5bYt3KiZhYfCTwnalmo37060KgWsaKzYF4',
+  profileImage: 'https://media.licdn.com/dms/image/v2/D4E03AQEosUpdLA8ifw/profile-displayphoto-crop_800_800/B4EZuirPhdJEAI-/0/1767960804775?e=1772064000&v=beta&t=CvrmtuEV_65ObseT8SA8EFFwQdNbCCxyvAzT_MaVrLs',
   contact: {
     email: 'wendrson22@gmail.com',
     github: 'https://github.com/wenderson-me',
@@ -14,21 +14,19 @@ export const personalInfo = {
 
 export const aboutContent = {
   pt: {
-    subtitle: 'De QA a Criativo',
+    subtitle: 'Perfil Técnico em QA',
     paragraphs: [
-      'A minha jornada é alimentada pela curiosidade. Seja a testar a solidez de um software ou a explorar uma nova composição fotográfica, a minha paixão está em encontrar a qualidade e a beleza nos detalhes.',
-      'Com mais de 5 anos em Quality Assurance, aprendi que um produto de sucesso vai além do código: trata-se da experiência. Essa perceção levou-me a explorar o design e a fotografia, onde aplico a mesma atenção ao detalhe e o mesmo rigor para criar algo significativo.',
-      'Acredito que a minha experiência técnica em QA, combinada com um olhar criativo, me oferece uma perspetiva única. Consigo não só identificar o que está errado, mas também visualizar o que poderia ser melhor, mais intuitivo e mais belo.',
-      'Estou à procura de projetos onde possa unir estes dois mundos, contribuindo para criar produtos que não só funcionam na perfeição, mas que também encantam e inspiram.'
+      'Profissional com mais de 6 anos de experiência em Quality Assurance, especializado em automação de testes E2E, API e performance. Forte atuação em ambientes ágeis, liderando estratégias de testes, análise de requisitos e integração de pipelines CI/CD.',
+      'Expertise em ferramentas como Cypress, Playwright e Selenium, além de sólida vivência com Azure DevOps, GitLab e K6. Foco em resultados, melhoria contínua e entrega de produtos com alta qualidade e confiabilidade.',
+      'Visão sistêmica de processos, forte orientação para automação e colaboração ativa com times de desenvolvimento para acelerar entregas e garantir excelência técnica.'
     ]
   },
   en: {
-    subtitle: 'From QA to Creative',
+    subtitle: 'Technical QA Profile',
     paragraphs: [
-      'My journey is fueled by curiosity. Whether testing software robustness or exploring a new photographic composition, my passion lies in finding quality and beauty in the details.',
-      'With more than 5 years in Quality Assurance, I learned that a successful product goes beyond code: it\'s about experience. This insight led me to explore design and photography, where I apply the same attention to detail and rigor to create something meaningful.',
-      'I believe my technical QA experience, combined with a creative eye, offers me a unique perspective. I can not only identify what\'s wrong but also visualize what could be better, more intuitive, and more beautiful.',
-      'I\'m looking for projects where I can unite these two worlds, contributing to creating products that not only work perfectly but also delight and inspire.'
+      'Professional with over 6 years of experience in Quality Assurance, specialized in E2E, API, and performance test automation. Strong background in agile environments, leading test strategies, requirements analysis, and CI/CD pipeline integration.',
+      'Expertise in tools such as Cypress, Playwright, and Selenium, with solid experience in Azure DevOps, GitLab, and K6. Results-driven, focused on continuous improvement and delivering high-quality, reliable products.',
+      'Systemic process vision, strong focus on automation, and active collaboration with development teams to accelerate delivery and ensure technical excellence.'
     ]
   }
 };
@@ -44,29 +42,23 @@ export const experiences = [
     company: 'Instituto Informática - Segurança Social',
     description: {
       pt: [
-        'Executo testes manuais funcionais e exploratórios detalhados para validar funcionalidades.',
-        'Realizo testes de integração entre múltiplos módulos, garantindo fluxo de dados consistente.',
-        'Desenvolvo e executo testes automatizados E2E com Cypress, cobrindo fluxos críticos de usuário e reduzindo tempo de validação.',
-        'Conduzo testes abrangentes de API REST e SOAP, validando contratos, payloads, autenticação e tratamento de erros.',
-        'Gerencio o ciclo de vida completo de bugs, desde identificação, documentação com evidências, priorização, resolução e reteste.',
-        'Implemento testes de API automatizados para validar endpoints, integrações e regras de negócio de forma contínua.',
-        'Executo testes de regressão manuais e automatizados após cada release, garantindo estabilidade e prevenindo reintrodução de defeitos.',
-        'Crio e mantenho casos de teste detalhados no TestLink, garantindo rastreabilidade completa e cobertura dos requisitos.',
-        'Colaboro ativamente com desenvolvedores e analistas em cerimônias ágeis, oferecendo feedback técnico para melhorar a qualidade.'
+        'Implementei automação de testes E2E com Selenium e Cypress, ampliando a cobertura e reduzindo o tempo de validação.',
+        'Realizei testes de APIs REST e SOAP, validando integrações e contratos de serviços.',
+        'Gerenciei o ciclo de vida de bugs, desde a identificação até a resolução, promovendo entregas mais estáveis.',
+        'Conduzi testes de regressão e exploratórios, antecipando riscos e prevenindo falhas em produção.',
+        'Criei, mantive e otimizei casos de teste no TestLink, assegurando rastreabilidade e cobertura dos requisitos.',
+        'Colaborei com equipes ágeis, promovendo a cultura de qualidade e integração contínua.'
       ],
       en: [
-        'Execute detailed functional and exploratory manual testing to validate critical functionalities and identify undocumented scenarios.',
-        'Perform integration testing between multiple modules and external systems, ensuring consistent data.',
-        'Develop and execute E2E automated tests with Cypress, covering critical user flows and reducing validation time.',
-        'Conduct comprehensive REST and SOAP API testing, validating contracts, payloads, authentication, and error handling.',
-        'Manage complete bug lifecycle, from identification, documentation with evidence, prioritization, resolution and retest.',
-        'Implement automated API tests to continuously validate endpoints, integrations, and business rules.',
-        'Execute manual and automated regression testing after each release, ensuring stability and preventing defect reintroduction.',
-        'Create and maintain detailed test cases in TestLink, ensuring complete traceability and requirements coverage.',
-        'Actively collaborate with developers and analysts in agile ceremonies, providing technical feedback to improve quality.'
+        'Implemented E2E test automation with Selenium and Cypress, increasing coverage and reducing validation time.',
+        'Performed REST and SOAP API testing, validating integrations and service contracts.',
+        'Managed the bug lifecycle, from identification to resolution, promoting more stable releases.',
+        'Conducted regression and exploratory testing, anticipating risks and preventing production failures.',
+        'Created, maintained, and optimized test cases in TestLink, ensuring traceability and requirements coverage.',
+        'Collaborated with agile teams, promoting a quality-driven culture and continuous integration.'
       ]
     },
-    tools: 'TestLink, Gitlab, Postman, Cypress, SQL Server, API'
+    tools: 'Cypress, Selenium, Git, GitLab, SQL Server, TestLink, Bugzilla'
   },
   {
     id: '2',
@@ -78,21 +70,21 @@ export const experiences = [
     company: 'SPMS - Ministério da Saúde',
     description: {
       pt: [
-        'Analisei requisitos no Jira para criar casos de teste e aumentar a cobertura.',
-        'Executei e documentei testes de aceitação para garantir conformidade com os requisitos.',
-        'Realizei testes exploratórios, identificando falhas críticas não cobertas.',
-        'Conduzi testes de regressão em cada sprint, reduzindo bugs recorrentes.',
-        'Participei de reuniões ágeis, oferecendo insights que aprimoraram o desenvolvimento.'
+        'Analisei requisitos e criei casos de teste detalhados para aumentar a cobertura e rastreabilidade dos testes.',
+        'Implementei e mantive automação de testes E2E com Robot Framework e Cucumber, acelerando validações e reduzindo erros manuais.',
+        'Realizei testes exploratórios, de regressão e automação de APIs com Postman, garantindo a qualidade em múltiplos níveis.',
+        'Participei de reuniões ágeis, colaborando com times multidisciplinares para aprimorar processos e entregas.',
+        'Utilizei Azure DevOps, Jira e GitLab para gestão de projetos, versionamento e integração contínua.'
       ],
       en: [
-        'Analyzed requirements in Jira to create test cases and increase coverage.',
-        'Executed and documented acceptance tests to ensure compliance with requirements.',
-        'Performed exploratory testing, identifying critical uncovered failures.',
-        'Conducted regression testing in each sprint, reducing recurring bugs.',
-        'Participated in agile meetings, offering insights that improved development.'
+        'Analyzed requirements and created detailed test cases to increase coverage and traceability.',
+        'Implemented and maintained E2E test automation with Robot Framework and Cucumber, accelerating validations and reducing manual errors.',
+        'Performed exploratory, regression, and API automation testing with Postman, ensuring quality at multiple levels.',
+        'Participated in agile meetings, collaborating with multidisciplinary teams to improve processes and deliveries.',
+        'Used Azure DevOps, Jira, and GitLab for project management, versioning, and continuous integration.'
       ]
     },
-    tools: 'Jira, Postman, SQL, Git, GitLab, Azure DevOps, Robot Framework, BDD'
+    tools: 'Robot Framework, Git, Jira, GitLab, Cucumber, Postman, Azure DevOps, SQL Server'
   },
   {
     id: '3',
@@ -104,27 +96,23 @@ export const experiences = [
     company: 'Tray - E-commerce',
     description: {
       pt: [
-        'Desenvolvi e mantive mais de 200 testes automatizados em Cypress e Capybara, reduzindo o tempo de testes.',
-        'Aprimorei o framework de automação, aumentando a reutilização de código.',
-        'Identifiquei e documentei bugs críticos com evidências detalhadas.',
-        'Configurei e otimizei CI/CD no GitLab, reduzindo o tempo de integração.',
-        'Criei documentação técnica e guias de melhores práticas.',
-        'Acompanhei implantações em produção, oferecendo suporte técnico imediato.',
-        'Implementei testes de performance com K6, melhorando o tempo de resposta.',
-        'Compartilhei conhecimento em sessões de pair programming e workshops.'
+        'Criei, mantive e evoluí frameworks de automação E2E, API e performance utilizando Cypress e K6, otimizando o tempo de validação e a confiabilidade das entregas.',
+        'Realizei testes exploratórios e unitários, identificando falhas críticas e garantindo a robustez das aplicações.',
+        'Documentei processos e melhores práticas em wiki, promovendo a disseminação de conhecimento e padronização do time.',
+        'Atuei em pipelines CI/CD com Docker e GitLab, integrando automação de testes e acompanhando deploys em produção.',
+        'Compartilhei conhecimento em sessões de pair programming e workshops internos.',
+        'Monitorei métricas de performance com Grafana e otimizei integrações com Redis e PHP.'
       ],
       en: [
-        'Developed and maintained over 200 automated tests in Cypress and Capybara, reducing testing time.',
-        'Enhanced the automation framework, increasing code reusability.',
-        'Identified and documented critical bugs with detailed evidence.',
-        'Configured and optimized CI/CD in GitLab, reducing integration time.',
-        'Created technical documentation and best practice guides.',
-        'Monitored production deployments, providing immediate technical support.',
-        'Implemented performance testing with K6, improving response time.',
-        'Shared knowledge in pair programming sessions and workshops.'
+        'Created, maintained, and improved E2E, API, and performance automation frameworks using Cypress and K6, optimizing validation time and delivery reliability.',
+        'Performed exploratory and unit testing, identifying critical failures and ensuring application robustness.',
+        'Documented processes and best practices in the wiki, promoting knowledge sharing and team standardization.',
+        'Worked on CI/CD pipelines with Docker and GitLab, integrating test automation and monitoring production deployments.',
+        'Shared knowledge in pair programming sessions and internal workshops.',
+        'Monitored performance metrics with Grafana and optimized integrations with Redis and PHP.'
       ]
     },
-    tools: 'Git, GitLab, JavaScript, Cypress, Docker, K6, Jest, Ymal, Vue, Ruby'
+    tools: 'Cypress, Git, GitLab, Docker, K6, JavaScript, Jest, Vue, PHP, Grafana, Redis'
   },
   {
     id: '4',
@@ -136,25 +124,25 @@ export const experiences = [
     company: 'Auto Bem - Seguro de veículos',
     description: {
       pt: [
-        'Elaborei mais de 500 casos de teste para aplicações web, assegurando cobertura total dos requisitos.',
-        'Implementei um sistema de reporte de bugs no Azure DevOps, melhorando a eficiência na correção.',
-        'Realizei testes manuais rigorosos de UI/UX, funcionalidade, integração e compatibilidade.',
-        'Analisei requisitos técnicos e de negócio, identificando ambiguidades e riscos antes do desenvolvimento.',
-        'Utilizei o Postman para testar APIs REST, garantindo a integridade dos endpoints.',
-        'Colaborei com desenvolvedores e product owners para esclarecer requisitos e expectativas.',
-        'Contribuí para processos de qualidade que reduziram bugs em produção.'
+        'Atuei em equipe ágil, realizando testes manuais e automatizados para aplicações web, garantindo a qualidade em todas as etapas do ciclo de vida do produto.',
+        'Utilizei Azure DevOps para gerenciar repositórios, issues e o ciclo de vida de bugs, promovendo rastreabilidade e agilidade na resolução de problemas.',
+        'Implementei e executei testes de aceitação, exploratórios e de regressão, validando requisitos de negócio e experiência do usuário.',
+        'Desenvolvi e mantive automação de testes E2E com Cypress, aumentando a eficiência e cobertura dos testes.',
+        'Realizei testes de APIs REST com Postman, assegurando a integridade e segurança dos endpoints.',
+        'Colaborei com desenvolvedores e product owners para esclarecer requisitos e promover entregas alinhadas.',
+        'Participei de pipelines CI/CD, contribuindo para entregas contínuas e seguras.'
       ],
       en: [
-        'Developed over 500 test cases for web applications, ensuring total requirements coverage.',
-        'Implemented a bug reporting system in Azure DevOps, improving correction efficiency.',
-        'Performed rigorous manual testing of UI/UX, functionality, integration, and compatibility.',
-        'Analyzed technical and business requirements, identifying ambiguities and risks before development.',
-        'Used Postman to test REST APIs, ensuring endpoint integrity.',
-        'Collaborated with developers and product owners to clarify requirements and expectations.',
-        'Contributed to quality processes that reduced production bugs.'
+        'Worked in an agile team, performing manual and automated testing for web applications, ensuring quality at all stages of the product lifecycle.',
+        'Used Azure DevOps to manage repositories, issues, and the bug lifecycle, promoting traceability and agility in problem resolution.',
+        'Implemented and executed acceptance, exploratory, and regression tests, validating business requirements and user experience.',
+        'Developed and maintained E2E test automation with Cypress, increasing efficiency and test coverage.',
+        'Performed REST API testing with Postman, ensuring endpoint integrity and security.',
+        'Collaborated with developers and product owners to clarify requirements and promote aligned deliveries.',
+        'Participated in CI/CD pipelines, contributing to continuous and secure releases.'
       ]
     },
-    tools: 'Cypress, Git, Azure, Postman, Ymal, Javascript, Angular, C#'
+    tools: 'Cypress, Git, Azure DevOps, Postman, JavaScript, Angular, C#, SQL Server'
   }
 ];
 
@@ -230,7 +218,7 @@ export const portfolioProjects = [
   // },
 
    {
-     id: '4',
+     id: '3',
      title: {
        pt: 'Testes com Playwright',
        en: 'Testing with Playwright'

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Document, Page, Text, View, StyleSheet, Font } from '@react-pdf/renderer';
+import { Document, Page, Text, View, StyleSheet } from '@react-pdf/renderer';
 import { personalInfo, aboutContent, experiences, education, certification, skills } from '../data/portfolio';
 
 interface ResumePDFProps {
@@ -8,55 +8,71 @@ interface ResumePDFProps {
 
 const styles = StyleSheet.create({
   page: {
-    padding: 30,
+    padding: 32,
     fontFamily: 'Helvetica',
     fontSize: 10,
-    backgroundColor: '#ffffff',
+    backgroundColor: '#fff',
+    color: '#232323',
   },
   header: {
-    marginBottom: 20,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
+    marginBottom: 18,
+    borderBottomWidth: 2,
+    borderBottomColor: '#7c3aed',
+    paddingBottom: 8,
+  },
+  leftHeader: {
+    flexDirection: 'column',
+    flexGrow: 1,
   },
   name: {
-    fontSize: 24,
+    fontSize: 22,
     fontWeight: 'bold',
-    marginBottom: 5,
     color: '#1a1a1a',
+    marginBottom: 2,
   },
   title: {
-    fontSize: 14,
+    fontSize: 12,
     color: '#7c3aed',
-    marginBottom: 10,
+    marginBottom: 6,
+    fontWeight: 'bold',
   },
   contactInfo: {
-    fontSize: 9,
+    fontSize: 8.5,
     color: '#4b5563',
-    marginBottom: 3,
+    marginBottom: 2,
   },
   section: {
-    marginBottom: 15,
+    marginBottom: 14,
   },
   sectionTitle: {
-    fontSize: 14,
+    fontSize: 12,
     fontWeight: 'bold',
-    marginBottom: 8,
-    paddingBottom: 4,
-    borderBottomWidth: 1,
-    borderBottomColor: '#d1d5db',
-    color: '#1a1a1a',
+    marginBottom: 6,
+    color: '#7c3aed',
+    letterSpacing: 0.5,
+    textTransform: 'uppercase',
   },
-  text: {
-    fontSize: 9,
+  summary: {
+    fontSize: 9.5,
+    color: '#232323',
+    marginBottom: 8,
     lineHeight: 1.5,
-    color: '#374151',
     textAlign: 'justify',
   },
   experienceItem: {
-    marginBottom: 12,
+    marginBottom: 10,
+    paddingBottom: 6,
+    borderBottomWidth: 1,
+    borderBottomColor: '#e5e7eb',
   },
   experienceHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 4,
+    alignItems: 'center',
+    marginBottom: 2,
   },
   experienceTitle: {
     fontSize: 10,
@@ -66,22 +82,24 @@ const styles = StyleSheet.create({
   experiencePeriod: {
     fontSize: 8,
     color: '#6b7280',
+    fontWeight: 'bold',
   },
   bulletPoint: {
-    fontSize: 8,
-    marginLeft: 10,
-    marginBottom: 2,
+    fontSize: 8.5,
+    marginLeft: 8,
+    marginBottom: 1.5,
     color: '#374151',
     lineHeight: 1.4,
   },
   tools: {
     fontSize: 8,
-    marginTop: 4,
+    marginTop: 2,
     color: '#6b7280',
   },
   skillsGrid: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    marginTop: 2,
   },
   skillColumn: {
     width: '48%',
@@ -89,7 +107,7 @@ const styles = StyleSheet.create({
   skillTitle: {
     fontSize: 10,
     fontWeight: 'bold',
-    marginBottom: 4,
+    marginBottom: 2,
     color: '#1a1a1a',
   },
   skillText: {
@@ -98,12 +116,12 @@ const styles = StyleSheet.create({
     color: '#374151',
   },
   educationItem: {
-    marginBottom: 8,
+    marginBottom: 6,
   },
   educationHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 2,
+    marginBottom: 1,
   },
   educationTitle: {
     fontSize: 10,
@@ -121,43 +139,39 @@ const ResumePDF: React.FC<ResumePDFProps> = ({ language }) => {
     <Document>
       <Page size="A4" style={styles.page}>
         <View style={styles.header}>
-          <Text style={styles.name}>{personalInfo.name}</Text>
-          <Text style={styles.title}>{personalInfo.title[language]}</Text>
-          <Text style={styles.contactInfo}>Email: {personalInfo.contact.email}</Text>
-          <Text style={styles.contactInfo}>Site: wenderson-me.vercel.app/</Text>
-          <Text style={styles.contactInfo}>Local: {personalInfo.contact.location}</Text>
+          <View style={styles.leftHeader}>
+            <Text style={styles.name}>{personalInfo.name}</Text>
+            <Text style={styles.title}>{personalInfo.title[language]}</Text>
+            <Text style={styles.contactInfo}>Email: {personalInfo.contact.email}</Text>
+            <Text style={styles.contactInfo}>Site: wenderson-me.vercel.app/</Text>
+            <Text style={styles.contactInfo}>Local: {personalInfo.contact.location}</Text>
+          </View>
         </View>
 
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>
-            {language === 'pt' ? 'Sobre' : 'About'}
+            {language === 'pt' ? 'Resumo Profissional' : 'Professional Summary'}
           </Text>
-          <Text style={styles.text}>
-            {language === 'pt' ? aboutContent.pt.paragraphs[0] : aboutContent.en.paragraphs[0]}
-          </Text>
+          {aboutContent[language].paragraphs.map((p, i) => (
+            <Text key={i} style={styles.summary}>{p}</Text>
+          ))}
         </View>
 
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>
             {language === 'pt' ? 'Experiência' : 'Experience'}
           </Text>
-          {experiences.slice(0, 4).map((exp) => (
+          {experiences.map((exp) => (
             <View key={exp.id} style={styles.experienceItem}>
               <View style={styles.experienceHeader}>
-                <Text style={styles.experienceTitle}>
-                  {exp.title} - {exp.company}
-                </Text>
+                <Text style={styles.experienceTitle}>{exp.title} - {exp.company}</Text>
                 <Text style={styles.experiencePeriod}>{exp.period[language]}</Text>
               </View>
-              {exp.description[language].slice(0, 3).map((item, index) => (
-                <Text key={index} style={styles.bulletPoint}>
-                  • {item}
-                </Text>
+              {exp.description[language].map((item, index) => (
+                <Text key={index} style={styles.bulletPoint}>• {item}</Text>
               ))}
               <Text style={styles.tools}>
-                <Text style={{ fontWeight: 'bold' }}>
-                  {language === 'pt' ? 'Ferramentas: ' : 'Tools: '}
-                </Text>
+                <Text style={{ fontWeight: 'bold' }}>{language === 'pt' ? 'Ferramentas: ' : 'Tools: '}</Text>
                 {exp.tools}
               </Text>
             </View>
@@ -171,28 +185,20 @@ const ResumePDF: React.FC<ResumePDFProps> = ({ language }) => {
           <View style={styles.skillsGrid}>
             <View style={styles.skillColumn}>
               <Text style={styles.skillTitle}>Hard Skills</Text>
-              <Text style={styles.skillText}>
-                {language === 'pt' ? skills.hardSkills.pt : skills.hardSkills.en}
-              </Text>
+              <Text style={styles.skillText}>{language === 'pt' ? skills.hardSkills.pt : skills.hardSkills.en}</Text>
             </View>
             <View style={styles.skillColumn}>
-              <Text style={styles.skillTitle}>
-                {language === 'pt' ? 'Ferramentas' : 'Tools'}
-              </Text>
-              <Text style={styles.skillText}>{skills.tools.slice(0, 12).join(', ')}</Text>
+              <Text style={styles.skillTitle}>{language === 'pt' ? 'Ferramentas' : 'Tools'}</Text>
+              <Text style={styles.skillText}>{skills.tools.join(', ')}</Text>
             </View>
           </View>
         </View>
 
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>
-            {language === 'pt' ? 'Educação' : 'Education'}
-          </Text>
+          <Text style={styles.sectionTitle}>{language === 'pt' ? 'Educação' : 'Education'}</Text>
           <View style={styles.educationItem}>
             <View style={styles.educationHeader}>
-              <Text style={styles.educationTitle}>
-                {language === 'pt' ? education.degree.pt : education.degree.en}
-              </Text>
+              <Text style={styles.educationTitle}>{language === 'pt' ? education.degree.pt : education.degree.en}</Text>
               <Text style={styles.experiencePeriod}>{education.period}</Text>
             </View>
             <Text style={styles.educationInstitution}>{education.institution}</Text>
@@ -200,14 +206,10 @@ const ResumePDF: React.FC<ResumePDFProps> = ({ language }) => {
         </View>
 
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>
-            {language === 'pt' ? 'Certificações' : 'Certifications'}
-          </Text>
+          <Text style={styles.sectionTitle}>{language === 'pt' ? 'Certificações' : 'Certifications'}</Text>
           <View style={styles.educationItem}>
             <Text style={styles.educationTitle}>{certification.name}</Text>
-            <Text style={styles.educationInstitution}>
-              {certification.issuer} - {certification.year}
-            </Text>
+            <Text style={styles.educationInstitution}>{certification.issuer} - {certification.year}</Text>
           </View>
         </View>
       </Page>

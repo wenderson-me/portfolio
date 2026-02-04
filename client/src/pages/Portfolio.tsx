@@ -53,8 +53,8 @@ export default function Portfolio() {
             <h2 className="text-xl font-bold text-purple-800 dark:text-purple-300">
               {language === 'pt' ? 'Currículo' : 'Resume'}
             </h2>
-            <button 
-              onClick={() => document.getElementById('resume-modal')?.close()}
+            <button
+              onClick={() => (document.getElementById('resume-modal') as HTMLDialogElement)?.close()}
               className="p-2 rounded-lg hover:bg-purple-100 dark:hover:bg-purple-800/50 transition-colors"
             >
               <X className="w-5 h-5 text-purple-700 dark:text-purple-300" />
@@ -90,7 +90,7 @@ export default function Portfolio() {
                 </button>
               ))}
                 <button
-                  onClick={() => document.getElementById('resume-modal')?.showModal()}
+                  onClick={() => (document.getElementById('resume-modal') as HTMLDialogElement)?.showModal()}
                   className="bg-purple-600 hover:bg-purple-700 dark:bg-purple-500 dark:hover:bg-purple-600 text-white font-semibold px-4 py-2 rounded-md flex items-center transition-colors">
                   <Download className="w-4 h-4 mr-2" />
                   Download CV
@@ -183,6 +183,7 @@ export default function Portfolio() {
                 </div>
 
                 <div className="space-y-4">
+
                   {navItems.map((item) => (
                     <button
                       key={item.key}
@@ -192,6 +193,17 @@ export default function Portfolio() {
                       {item.label}
                     </button>
                   ))}
+
+                  <button
+                    onClick={() => {
+                        (document.getElementById('resume-modal') as HTMLDialogElement)?.showModal();
+                        setIsMobileMenuOpen(false);
+                      }}
+                    className="w-full mt-4 bg-purple-600 hover:bg-purple-700 dark:bg-purple-500 dark:hover:bg-purple-600 text-white font-semibold px-4 py-3 rounded-md flex items-center justify-center transition-colors"
+                  >
+                    <Download className="w-5 h-5 mr-2" />
+                    Download CV
+                  </button>
 
                   <div className="border-t border-gray-200 dark:border-gray-700 pt-4 mt-6">
                     <div className="flex items-center justify-between mb-4">
