@@ -203,19 +203,19 @@ export const portfolioProjects = [
     github: 'https://github.com/wenderson-me/advanced-cypress'
   },
 
-  // {
-  //   id: '3',
-  //   title: {
-  //     pt: 'Testes de Performance',
-  //     en: 'Performance Testing'
-  //   },
-  //   description: {
-  //     pt: 'Testes de carga e stress com K6.',
-  //     en: 'Load and stress testing with K6.'
-  //   },
-  //   image: 'https://placehold.co/600x400/1e293b/fde68a?text=K6+Performance',
-  //   github: 'https://github.com/wenderson-me/study-k6'
-  // },
+  {
+    id: '3',
+    title: {
+      pt: 'Projeto Pessoal Playwright',
+      en: 'Personal Project Personal Project'
+  },
+    description: {
+      pt: 'Testes de api com Playwright.',
+      en: 'API testing with Playwright.'
+    },
+      image: 'https://placehold.co/600x400/1e293b/fcd34d?text=Playwright+Personal',
+      github: 'https://github.com/wenderson-me/weid-tests'
+    },
 
    {
      id: '3',
