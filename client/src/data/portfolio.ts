@@ -35,30 +35,30 @@ export const experiences = [
   {
     id: '1',
     period: {
-      pt: 'Jun 2024 - Presente',
-      en: 'Jun 2024 - Present'
+      pt: 'Ago 2024 - Presente',
+      en: 'Ago 2024 - Present'
     },
     title: 'Quality Assurance',
-    company: 'Instituto Informática - Segurança Social',
+    company: 'Instituto dos Registos e do Notariado',
     description: {
       pt: [
-        'Implementei automação de testes E2E com Selenium e Cypress, ampliando a cobertura e reduzindo o tempo de validação.',
-        'Realizei testes de APIs REST e SOAP, validando integrações e contratos de serviços.',
-        'Gerenciei o ciclo de vida de bugs, desde a identificação até a resolução, promovendo entregas mais estáveis.',
-        'Conduzi testes de regressão e exploratórios, antecipando riscos e prevenindo falhas em produção.',
-        'Criei, mantive e otimizei casos de teste no TestLink, assegurando rastreabilidade e cobertura dos requisitos.',
-        'Colaborei com equipes ágeis, promovendo a cultura de qualidade e integração contínua.'
+        'Defino a estrutura e os padrões da automação de testes E2E e de APIs com Cypress, promovendo soluções escaláveis e fáceis de manter.',
+        'Realizo code reviews dos testes automatizados, identificando riscos e propondo melhorias de qualidade, cobertura e manutenção.',
+        'Elaboro planos e cenários de teste com base nos riscos e requisitos, assegurando cobertura e rastreabilidade.',
+        'Planeio e acompanho testes funcionais, de regressão, segurança e performance ao longo do ciclo de entrega.',
+        'Integro a execução dos testes nos processos de CI/CD com Jenkins e GitLab e acompanho o ciclo de vida dos bugs até à validação da correção.',
+        'Analiso métricas de performance com K6 e Grafana e recomendo melhorias técnicas e de processo às equipas.'
       ],
       en: [
-        'Implemented E2E test automation with Selenium and Cypress, increasing coverage and reducing validation time.',
-        'Performed REST and SOAP API testing, validating integrations and service contracts.',
-        'Managed the bug lifecycle, from identification to resolution, promoting more stable releases.',
-        'Conducted regression and exploratory testing, anticipating risks and preventing production failures.',
-        'Created, maintained, and optimized test cases in TestLink, ensuring traceability and requirements coverage.',
-        'Collaborated with agile teams, promoting a quality-driven culture and continuous integration.'
+        'Define the structure and standards for E2E and API test automation with Cypress, promoting scalable and maintainable solutions.',
+        'Review automated test code, identifying risks and recommending improvements to quality, coverage, and maintainability.',
+        'Create risk- and requirements-based test plans and scenarios, ensuring coverage and traceability.',
+        'Plan and oversee functional, regression, security, and performance testing throughout the delivery lifecycle.',
+        'Integrate test execution into CI/CD processes with Jenkins and GitLab, and manage bugs through fix validation.',
+        'Analyze performance metrics with K6 and Grafana and recommend technical and process improvements to teams.'
       ]
     },
-    tools: 'Cypress, Selenium, Git, GitLab, SQL Server, TestLink, Bugzilla'
+    tools: 'Cypress, Git, GitLab, TestLink, Jenkins, K6, Grafana'
   },
   {
     id: '2',
